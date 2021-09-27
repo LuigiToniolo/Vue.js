@@ -1,15 +1,13 @@
 <template>
     <h2 class="centralizado">Cadastro</h2>
 </template>
-
 <script>
 
 </script>
-
 <style>
 
-  .centralizado {
+    .centralizado {
 
-    text-align: center;
-  }
+        text-align: center;
+    }
 </style>
