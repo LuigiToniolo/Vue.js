@@ -1,38 +1,52 @@
 <template>
-  <div>
-    <h1 class="centralizado">{{ titulo }}</h1>
+    <div>
+        <h1 class="titulo">Alurapic</h1>
 
-    <input type="search" class="filtro" @input="filtro = $event.target.value" placeholder="filtre por parte do título">
+        <input type="search" class="filtro" @input="filtro = $event.target.value" placeholder="filtre pelo título da foto">
 
-    <ul class="lista-fotos">
-      <li class="lista-fotos-item" v-for="foto of fotosComFiltro">
+        <ul class="lista-fotos">
 
-        <meu-painel :titulo="foto.titulo">
-            <imagem-responsiva :url="foto.url" :titulo="foto.titulo"/>
-        </meu-painel>
+          <li class="lista-fotos-item" v-for="foto in fotosComFiltro">
 
-      </li>
-    </ul>
-  </div>
+              <meu-painel :titulo="foto.titulo">
+
+                <imagem-responsiva :url="foto.url" :titulo="foto.titulo"/>
+
+                <meu-botao
+                  tipo="button"
+                  rotulo="remover"
+                  @botaoAtivado="remove(foto)"
+                  :confirmacao="true"
+                  estilo="perigo"/>
+
+              </meu-painel>
+
+          </li>
+
+        </ul>
+    </div>
 </template>
 
 <script>
+
 import Painel from '../shared/painel/Painel.vue';
-import ImagemResponsiva from '../shared/imagem-responsiva/ImagemResponsiva.vue';
+import ImagemResponsiva from '../shared/imagem-responsiva/ImagemResponsiva.vue'
+import Botao from '../shared/botao/Botao.vue';
 
 export default {
 
   components: {
-    'meu-painel' : Painel, 
-    'imagem-responsiva': ImagemResponsiva
+    'meu-painel' : Painel,
+    'imagem-responsiva': ImagemResponsiva,
+    'meu-botao' : Botao
   },
 
   data() {
 
     return {
 
-      titulo: 'Alurapic', 
-      fotos: [], 
+      titulo: 'Alurapic',
+      fotos: [],
       filtro: ''
     }
   },
@@ -48,6 +62,16 @@ export default {
         return this.fotos;
       }
     }
+  },
+
+  methods: {
+
+    remove(foto) {
+
+        alert($event);
+        alert('Remover a foto: ' + foto.titulo)
+    }
+
   },
 
   created() {
