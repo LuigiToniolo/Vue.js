@@ -63,7 +63,7 @@ export default {
  }
 
  .painel-conteudo {
-   overflow: hidden;
+    overflow: hidden;
  }
 
 </style>
