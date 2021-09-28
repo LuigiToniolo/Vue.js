@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1 class="titulo">Alurapic</h1>
+        <h1 class="centralizado">Alurapic</h1>
 
         <input type="search" class="filtro" @input="filtro = $event.target.value" placeholder="filtre pelo título da foto">
 
@@ -10,7 +10,7 @@
 
               <meu-painel :titulo="foto.titulo">
 
-                <imagem-responsiva :url="foto.url" :titulo="foto.titulo"/>
+                <imagem-responsiva v-meu-transform:scale.animate="1.1" :url="foto.url" :titulo="foto.titulo"/>
 
                 <meu-botao
                   tipo="button"
